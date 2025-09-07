@@ -2,41 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Weather App Design System - Sky & Cloud Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Sky Blue Theme */
+    --background: 200 100% 97%;
+    --foreground: 215 25% 27%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Sky gradient backgrounds */
+    --sky-light: 200 100% 95%;
+    --sky-medium: 210 100% 85%;
+    --sky-deep: 220 70% 60%;
+    
+    /* Cloud colors */
+    --cloud-light: 0 0% 98%;
+    --cloud-medium: 210 20% 92%;
+    --cloud-dark: 215 15% 75%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Weather card system */
+    --card: 200 50% 96%;
+    --card-foreground: 215 25% 27%;
+    --card-glass: 200 100% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: 200 50% 98%;
+    --popover-foreground: 215 25% 27%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Primary sky blue */
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 50%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Secondary cloud tones */
+    --secondary: 210 25% 88%;
+    --secondary-foreground: 215 25% 27%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Muted sky tones */
+    --muted: 200 30% 90%;
+    --muted-foreground: 215 15% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Accent weather highlights */
+    --accent: 45 100% 60%;
+    --accent-foreground: 215 25% 27%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Weather alerts */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 35 95% 55%;
+    --warning-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    /* UI Elements */
+    --border: 210 30% 85%;
+    --input: 200 50% 94%;
+    --ring: 210 100% 56%;
+
+    /* Design system effects */
+    --radius: 1rem;
+    --glass-blur: blur(12px);
+    
+    /* Beautiful gradients */
+    --gradient-sky: linear-gradient(135deg, hsl(var(--sky-light)), hsl(var(--sky-medium)));
+    --gradient-weather: linear-gradient(145deg, hsl(var(--primary)) 0%, hsl(var(--sky-deep)) 100%);
+    --gradient-cloud: linear-gradient(180deg, hsl(var(--cloud-light)), hsl(var(--cloud-medium)));
+    
+    /* Weather animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Shadows */
+    --shadow-cloud: 0 8px 32px hsl(var(--sky-deep) / 0.15);
+    --shadow-weather: 0 12px 40px hsl(var(--primary) / 0.25);
+    --shadow-glass: 0 8px 32px hsl(220 70% 60% / 0.1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +92,65 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Sky Theme - Night Mode */
+    --background: 220 25% 8%;
+    --foreground: 200 20% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Dark sky gradients */
+    --sky-light: 220 30% 15%;
+    --sky-medium: 220 35% 12%;
+    --sky-deep: 220 45% 20%;
+    
+    /* Dark cloud colors */
+    --cloud-light: 220 20% 18%;
+    --cloud-medium: 220 15% 15%;
+    --cloud-dark: 220 25% 25%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Dark weather cards */
+    --card: 220 25% 10%;
+    --card-foreground: 200 20% 90%;
+    --card-glass: 220 30% 12%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 200 20% 90%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Primary night sky blue */
+    --primary: 210 100% 65%;
+    --primary-foreground: 220 25% 8%;
+    --primary-hover: 210 100% 70%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Secondary dark cloud tones */
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 200 20% 90%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Muted dark sky tones */
+    --muted: 220 15% 15%;
+    --muted-foreground: 200 10% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Accent weather highlights */
+    --accent: 45 100% 65%;
+    --accent-foreground: 220 25% 8%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Weather alerts - dark mode */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 35 85% 60%;
+    --warning-foreground: 220 25% 8%;
+
+    /* Dark UI Elements */
+    --border: 220 20% 20%;
+    --input: 220 25% 12%;
+    --ring: 210 100% 65%;
+
+    /* Dark gradients */
+    --gradient-sky: linear-gradient(135deg, hsl(var(--sky-medium)), hsl(var(--sky-light)));
+    --gradient-weather: linear-gradient(145deg, hsl(var(--primary)) 0%, hsl(var(--sky-deep)) 100%);
+    --gradient-cloud: linear-gradient(180deg, hsl(var(--cloud-medium)), hsl(var(--cloud-dark)));
+    
+    /* Dark shadows */
+    --shadow-cloud: 0 8px 32px hsl(220 50% 5% / 0.4);
+    --shadow-weather: 0 12px 40px hsl(var(--primary) / 0.15);
+    --shadow-glass: 0 8px 32px hsl(220 50% 5% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +169,64 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Beautiful scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-lg;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/30;
+  }
+
+  /* Smooth transitions for theme switching */
+  * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Custom gradient backgrounds */
+  .gradient-sky {
+    background: var(--gradient-sky);
+  }
+
+  .gradient-weather {
+    background: var(--gradient-weather);
+  }
+
+  .gradient-cloud {
+    background: var(--gradient-cloud);
+  }
+
+  /* Glass morphism utilities */
+  .glass-effect {
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+  }
+
+  /* Weather animation keyframes */
+  .weather-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Shimmer effect for loading states */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--primary) / 0.1),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
   }
 }

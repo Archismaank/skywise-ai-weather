@@ -19,9 +19,23 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        /* Weather Sky Theme Colors */
+        sky: {
+          light: "hsl(var(--sky-light))",
+          medium: "hsl(var(--sky-medium))",
+          deep: "hsl(var(--sky-deep))",
+        },
+        cloud: {
+          light: "hsl(var(--cloud-light))",
+          medium: "hsl(var(--cloud-medium))",
+          dark: "hsl(var(--cloud-dark))",
+        },
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -30,6 +44,10 @@ export default {
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -46,6 +64,7 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          glass: "hsl(var(--card-glass))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -80,10 +99,49 @@ export default {
             height: "0",
           },
         },
+        /* Weather-specific animations */
+        "weather-slide-in": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(20px) scale(0.95)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0) scale(1)",
+          },
+        },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
+        "shimmer": {
+          "0%": {
+            backgroundPosition: "-200% 0",
+          },
+          "100%": {
+            backgroundPosition: "200% 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "weather-slide-in": "weather-slide-in 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+        "float": "float 3s ease-in-out infinite",
+        "shimmer": "shimmer 2s linear infinite",
+      },
+      backdropBlur: {
+        xs: "2px",
+        sm: "4px",
+        md: "8px",
+        lg: "12px",
+        xl: "16px",
+        "2xl": "24px",
+        "3xl": "40px",
       },
     },
   },
